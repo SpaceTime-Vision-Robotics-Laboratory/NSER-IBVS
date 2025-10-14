@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efficient Self-Supervised Neuro-Analytic Visual Servoing for Real-time
+        Quadrotor Control</title>
+    <style>
+        body {
+              .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .three-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        @media (max-width: 768px) {
+            .three-column {
+                grid-template-columns: 1fr;
+            }
+        }font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #ffffff;
+            color: #333;
+        }
+        .title {
+            text-align: center;
+            margin: 60px 0 40px 0;
+        }
+        .title h1 {
+            font-size: 3em;
+            font-weight: normal;
+            margin: 0 0 20px 0;
+            color: #222;
+            line-height: 1.2;
+        }
+        .title h2 {
+            font-size: 1.8em;
+            font-weight: normal;
+            margin: 0 0 20px 0;
+            color: #666;
+            line-height: 1.3;
+        }
+        .conference {
+            font-size: 1.2em;
+            color: #0066cc;
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
+        .authors {
+            margin: 30px 0;
+            text-align: center;
+            line-height: 2;
+        }
+        .author {
+            display: inline-block;
+            margin: 0 15px 10px 15px;
+            text-decoration: none;
+            color: #0066cc;
+            font-size: 1.1em;
+        }
+        .author:hover {
+            text-decoration: underline;
+        }
+        .affiliations {
+            text-align: center;
+            margin: 20px 0 60px 0;
+            color: #666;
+            font-size: 1em;
+            line-height: 1.8;
+        }
+        .section {
+            margin: 60px 0;
+        }
+        .section h2 {
+            font-size: 2em;
+            font-weight: normal;
+            margin: 0 0 30px 0;
+            color: #222;
+            border-bottom: none;
+        }
+        .section h3 {
+            font-size: 1.4em;
+            font-weight: normal;
+            margin: 40px 0 20px 0;
+            color: #333;
+        }
+        .section p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin: 20px 0;
+            color: #444;
+        }
+        .video-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            margin: 20px 0;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .links {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .links a {
+            display: inline-block;
+            margin: 0 15px;
+            padding: 12px 24px;
+            background: #555;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 1em;
+            font-weight: 500;
+        }
+        .links a:hover {
+            background: #333;
+        }
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .large-results {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin: 40px 0;
+        }
+        .large-result-item {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .large-result-item img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .large-result-item p {
+            font-size: 1.1em;
+            color: #666;
+            margin-top: 15px;
+            text-align: left;
+        }
+        .result-item {
+            text-align: center;
+        }
+        .result-item img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .result-item p {
+            font-size: 0.95em;
+            color: #666;
+            margin-top: 10px;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .metric {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .metric .number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #0066cc;
+            display: block;
+        }
+        .metric .label {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+        .abstract {
+            background: #f9f9f9;
+            padding: 30px;
+            border-left: 4px solid #555;
+            margin: 40px 0;
+        }
+        .key-contributions {
+            margin-top: 25px;
+        }
+        .key-contributions h3 {
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .key-contributions ul {
+            font-size: 0.95em;
+            color: #555;
+        }
+        .key-contributions li {
+            margin-bottom: 8px;
+        }
+        .citation {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+            margin: 30px 0;
+            overflow-x: auto;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        li {
+            margin: 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.95em;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: #f9f9f9;
+            font-weight: 600;
+        }
+        tr:hover {
+            background: #f9f9f9;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+            }
+            .title h1 {
+                font-size: 2.2em;
+            }
+            .title h2 {
+                font-size: 1.4em;
+            }
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-90M4DDNEBC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-90M4DDNEBC');
+</script>
+<body>
+    <div class="title">
+        <h1>Efficient Self-Supervised Neuro-Analytic </h1>
+        <h2>Visual Servoing for Real-time
+            Quadrotor Control</h2>
+        <div class="conference" style="color: #555;">The 21st Embedded Vision Workshop - ICCV 2025</div>
+    </div>
+
+    <div class="authors">
+        <a href="https://scholar.google.com/citations?user=osyBED4AAAAJ&hl=en" class="author" style="color: #0066cc;">Sebastian Mocanu<sup>1</sup></a>
+        <a href="https://scholar.google.com/citations?user=VBogtPAAAAAJ&hl=en" class="author" style="color: #0066cc;">Sebastian-Ion Nae<sup>1</sup></a>
+        <a href="https://scholar.google.com/citations?user=9GlsUHAAAAAJ&hl=en&oi=ao" class="author" style="color: #0066cc;">Mihai Eugen Barbu<sup>1</sup></a>
+        <a href="https://scholar.google.com/citations?user=se9kni0AAAAJ&hl=en" class="author" style="color: #0066cc;">Marius Leordeanu<sup>1,2,3</sup></a>
+    </div>
+
+    <div class="affiliations">
+        <sup>1</sup>National University of Science and Technology POLITEHNICA Bucharest, Romania<br>
+        <sup>2</sup>Institute of Mathematics "Simion Stoilow" of the Romanian Academy, Romania<br>
+        <sup>3</sup>NORCE Norwegian Research Center, Norway
+    </div>
+
+    <div class="links">
+        <a href="assets/BRAIT_2025_final.pdf" target="_blank">Paper</a>
+        <a href="#" target="_blank">Poster(in progress)</a>
+        <a href="https://github.com/SheepSeb/Vision-Language-UAV-Following-Control" target="_blank">Code</a>
+    </div>
+
+    <div class="section">
+        <h2>Abstract</h2>
+        <div class="abstract">
+            <p>This work introduces a self-supervised neuro-analytical,
+                cost efficient, model for visual-based quadrotor control in
+                which a small 1.7M parameters student ConvNet learns automatically from an analytical teacher, an improved imagebased visual servoing (IBVS) controller. Our IBVS system
+                solves numerical instabilities by reducing the classical visual servoing equations and enabling efficient stable image
+                feature detection. Through knowledge distillation, the student model achieves 11× faster inference compared to the
+                teacher IBVS pipeline, while demonstrating similar control
+                accuracy at a significantly lower computational and memory cost. Our vision-only self-supervised neuro-analytic
+                control, enables quadrotor orientation and movement without requiring explicit geometric models or fiducial markers.
+                The proposed methodology leverages simulation-to-reality
+                transfer learning and is validated on a small drone platform
+                in GPS-denied indoor environments. Our key contributions
+                include: (1) an analytical IBVS teacher that solves numerical instabilities inherent in classical approaches, (2) a twostage segmentation pipeline combining YOLOv11 with a UNet-based mask splitter for robust anterior-posterior vehicle segmentation to correctly estimate the orientation of the
+                target, and (3) an efficient knowledge distillation dual-path
+                system, which transfers geometric visual servoing capabilities from the analytical IBVS teacher to a compact and
+                small student neural network that outperforms the teacher,
+                while being suitable for real-time onboard deployment.</p>
+        </div>
+        
+        <div class="key-contributions">
+            <h3>Key Contributions</h3>
+            <ul>
+                <li><strong>Contrib 1</li>
+                <li><strong>Contrib 2</li>
+                <li><strong>Contrib 3</li>
+                <li><strong>Contrib 4</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Overview Video</h2>
+        <div class="video-container">
+            <div class="video-wrapper">
+                <iframe 
+                    src="" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <p>Description</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Detection Results & Samples</h2>
+        
+        <p>Our vision-language-guided UAV tracking framework demonstrates robust performance across diverse indoor scenarios. We collected 14,400 high-resolution frames (3840 × 2160) using automated pseudo-labeling with 98.6% accuracy.</p>
+        
+        <div class="large-results">
+            <div class="large-result-item">
+                <img src="imgs/image_edits/multiple_images.png" alt="Multiple Target Detection Examples">
+                <p><strong>Multi-Target Following:</strong> UAVs tracking various targets including ground vehicles and aerial drones across indoor classrooms, constrained spaces, and diverse conditions.</p>
+            </div>
+            <div class="large-result-item">
+                <img src="imgs/image_edits/miss_detection.png" alt="Detection Success and Failure Cases">
+                <p><strong>Detection Accuracy:</strong> Success cases (left, right) and failure case (center) showing 98.6% automated labeling accuracy with only 1.4% requiring manual correction.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Dataset Comparison</h2>
+        <p>Our indoor drone dataset maintains comparable size to datasets used for YOLOv8 fine-tuning, with the key distinction being the temporal information preserved in our video-based dataset.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Paper</th>
+                    <th>Dataset</th>
+                    <th>No. of Videos</th>
+                    <th>No. of Images</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Ours</strong></td>
+                    <td>Ours (only drone footage)</td>
+                    <td>4</td>
+                    <td>14,400</td>
+                </tr>
+                <tr>
+                    <td>Real-Time Flying OD with YOLOv8</td>
+                    <td>Dataset 1</td>
+                    <td>No videos</td>
+                    <td>15,064</td>
+                </tr>
+                <tr>
+                    <td>Real-Time Flying OD with YOLOv8</td>
+                    <td>Dataset 2</td>
+                    <td>No videos</td>
+                    <td>11,998</td>
+                </tr>
+                <tr>
+                    <td>Dogfight</td>
+                    <td>NPS-Drones</td>
+                    <td>14</td>
+                    <td>70,250</td>
+                </tr>
+                <tr>
+                    <td>Dogfight</td>
+                    <td>FL-Drones</td>
+                    <td>50</td>
+                    <td>38,948</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="table-caption">Table 1: Dataset comparison showing our indoor drone dataset maintains comparable size to datasets used for YOLOv8 fine-tuning. While smaller than Dogfight datasets, our high-quality annotations address potential labeling inconsistencies present in larger datasets.</div>
+    </div>
+
+    <div class="section">
+        <h2>GradCAM Attention Analysis</h2>
+        <p>To validate detection reliability, we employed GradCAM to visualize YOLOv8's attention patterns across different scenarios. This analysis reveals important insights about the model's behavior in various environments.</p>
+        
+        <div class="two-column">
+            <div class="result-item">
+                <img src="imgs/gradCAM/gradCAM.png" alt="GradCAM Human-biased Attention">
+                <p><strong>Mixed Human-Drone Scenarios:</strong> The model shows strong bias toward human subjects, potentially compromising drone detection in human-populated environments.</p>
+            </div>
+            <div class="result-item">
+                <img src="imgs/gradCAM/gradCAM2.png" alt="GradCAM Drone-focused Attention">
+                <p><strong>Drone-only Scenarios:</strong> Distributed attention across multiple UAV targets with reduced environmental interference, indicating robust multi-target tracking capabilities.</p>
+            </div>
+        </div>
+        
+        <div class="abstract" style="margin-top: 30px;">
+            <p><strong>Implications for Deployment:</strong> The observed attention bias suggests potential performance degradation in human-populated environments. This validates our dataset design focusing on indoor drone-to-drone scenarios where human interference is minimized. The distributed attention pattern in drone-centric scenarios indicates robust multi-target tracking capabilities essential for autonomous operation.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>YOLOv8 Performance Evaluation</h2>
+        <p>We assess model performance across precision, recall, mAP50-95, and inference latency to highlight trade-offs between accuracy and real-time feasibility. YOLOv8-nano trained for 25 epochs achieves the best balance: 0.97 precision, 0.97 recall, 0.79 mAP50-95, and a low 4.7 ms inference time.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>Epochs</th>
+                    <th>Precision ↑</th>
+                    <th>Recall ↑</th>
+                    <th>mAP50-95 ↑</th>
+                    <th>Inference Time ↓ (ms)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="3">YOLOv8-nano</td>
+                    <td>5</td>
+                    <td>0.95</td>
+                    <td>0.92</td>
+                    <td>0.67</td>
+                    <td>4.7</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>0.97</td>
+                    <td>0.97</td>
+                    <td>0.72</td>
+                    <td>4.7</td>
+                </tr>
+                <tr>
+                    <td>25</td>
+                    <td>0.97</td>
+                    <td><strong>0.97</strong></td>
+                    <td><strong>0.79</strong></td>
+                    <td><strong>4.7</strong></td>
+                </tr>
+                <tr>
+                    <td rowspan="3">YOLOv8-small</td>
+                    <td>5</td>
+                    <td>0.93</td>
+                    <td>0.93</td>
+                    <td>0.62</td>
+                    <td>6.9</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>0.95</td>
+                    <td>0.94</td>
+                    <td>0.72</td>
+                    <td>7.0</td>
+                </tr>
+                <tr>
+                    <td>25</td>
+                    <td><strong>0.98</strong></td>
+                    <td><strong>0.97</strong></td>
+                    <td>0.78</td>
+                    <td>7.0</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">YOLOv8-large</td>
+                    <td>5</td>
+                    <td>0.86</td>
+                    <td>0.83</td>
+                    <td>0.56</td>
+                    <td>29.6</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>0.94</td>
+                    <td>0.93</td>
+                    <td>0.69</td>
+                    <td>32.4</td>
+                </tr>
+                <tr>
+                    <td>25</td>
+                    <td>0.97</td>
+                    <td>0.95</td>
+                    <td>0.77</td>
+                    <td>31.3</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="table-caption">Table 2: Comparative evaluation of YOLOv8 architectures across training epochs, demonstrating the precision-efficiency trade-off critical for onboard deployment. Bold values indicate selected configuration optimizing for real-time constraints.</div>
+    </div>
+
+    <div class="section">
+        <h2>Control Algorithm Comparison</h2>
+        
+        <p>We compare our depth-free IBVS controller against traditional PID control for indoor UAV tracking. IBVS achieves superior centering performance (89-92% vs 68-71%) while operating solely on 2D visual features.</p>
+        
+        <h3>Algorithm Architectures</h3>
+        <div class="two-column">
+            <div class="result-item">
+                <img src="imgs/control/control_algorithm_pid.png" alt="PID Control Algorithm">
+                <p><strong>PID Controller:</strong> Traditional position-based control approach</p>
+            </div>
+            <div class="result-item">
+                <img src="imgs/control/schematic-ibvs-tracking.png" alt="IBVS Control Schematic">
+                <p><strong>IBVS Controller:</strong> Vision-based servoing control architecture</p>
+            </div>
+        </div>
+
+        <h3>Spatial Distribution Analysis</h3>
+        <div class="three-column">
+            <div class="result-item">
+                <img src="imgs/control/ibvs-line/03_detection_heatmap.png" alt="IBVS Line Heatmap">
+                <p>IBVS Line Trajectory - Detection Heatmap</p>
+            </div>
+            <div class="result-item">
+                <img src="imgs/control/ibvs-round/03_detection_heatmap.png" alt="IBVS Round Heatmap">
+                <p>IBVS Circular Trajectory - Detection Heatmap</p>
+            </div>
+            <div class="result-item">
+                <img src="imgs/control/tracking-pid-line/03_detection_heatmap.png" alt="PID Line Heatmap">
+                <p>PID Line Trajectory - Detection Heatmap</p>
+            </div>
+        </div>
+
+        <h3>Controller Performance Comparison</h3>
+        <p>IBVS achieves superior tracking with 89% (straight-line) and 92% (circular) centering scores versus PID's 68% and 71%. IBVS demonstrates higher control authority but increased command variability.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Controller</th>
+                    <th>Range vx/vy/ωz Cmd (m/s)</th>
+                    <th>Centering Score</th>
+                    <th>Smoothness</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2">Straight Line</td>
+                    <td>PID</td>
+                    <td>[0, 0]/[-10, 30]/[-4, 4]</td>
+                    <td>0.68</td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td><strong>IBVS</strong></td>
+                    <td>[-4, 4]/[-10, 40]/[0, 25]</td>
+                    <td><strong>0.89</strong></td>
+                    <td>Medium</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Circular</td>
+                    <td>PID</td>
+                    <td>[0, 0]/[-10, 30]/[-5, 15]</td>
+                    <td>0.71</td>
+                    <td>Low</td>
+                </tr>
+                <tr>
+                    <td><strong>IBVS</strong></td>
+                    <td>[-10, 20]/[-20, 30]/[0, 9]</td>
+                    <td><strong>0.92</strong></td>
+                    <td>High</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="table-caption">Table 3: Controller performance comparison. Centering Score represents the fraction of time the target remained within the central 30% of the image frame. Command Smoothness is qualitatively assessed from standard deviation analysis.</div>
+
+        <p>The depth-decoupled IBVS approach shows clear advantages in tracking accuracy and adaptability to complex trajectories. IBVS exhibits particularly improved performance during high-curvature segments where PID shows erratic behavior.</p>
+    </div>
+
+    <div class="section">
+        <h2>Conclusion</h2>
+        <p>We presented a self-supervised framework for autonomous indoor UAV tracking that combines scalable dataset generation with depth-free visual servoing control. Leveraging a frozen vision-language model (GroundingSAM), we achieved 98.6% labeling accuracy across a high-resolution indoor drone dataset, significantly reducing manual annotation effort.</p>
+        
+        <p>Our evaluation of YOLOv8 variants highlights the trade-off between accuracy and inference latency. YOLOv8-nano strikes the best balance for real-time deployment (0.97 precision/recall at 4.7 ms), while larger models offer marginal gains at a cost to onboard performance. The proposed depth-decoupled IBVS controller enables stable target following using only 2D visual features, improving centering performance (89–92% vs. 68–71%) compared to PID baseline, especially in complex trajectories.</p>
+        
+        <p>Despite some limitations including fixed flight altitude assumptions and detection reliability degradation under occlusion or low contrast, our approach demonstrates a reproducible and scalable pipeline for markerless indoor UAV tracking with potential applications in warehouse automation, surveillance, and multi-agent indoor robotics.</p>
+    </div>
+
+    <div class="section">
+        <h2>Resources</h2>
+        <p>
+            <a href="https://github.com/SheepSeb/Vision-Language-UAV-Following-Control">📁 GitHub Repository</a> |
+            <a href="https://youtu.be/67IEGqvVRYI">🎥 Demo Video</a> |
+            <a href="assets/BRAIT_2025_final.pdf">📑 Paper (PDF)</a> |
+            <a href="#contact">✉️ Contact</a>
+        </p>
+        
+        <div id="contact" style="margin-top: 30px;">
+            <h3>Contact</h3>
+            <p>For questions and collaboration inquiries, please contact the authors through the GitHub repository or academic channels.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Citation</h2>
+        <div class="citation">
+@article{nae2025learning,
+  title={Learning Object Following for Small UAVs using Vision-Language and Efficient Visual Flight Control},
+  author={Nae, Sebastian-Ion and Leordeanu, Marius},
+  journal={2nd Best Romanian AI Thesis Awards (BRAIT 2025)},
+  year={2025}
+}
+        </div>
+    </div>
+
+    <footer style="text-align: center; margin-top: 60px; padding: 20px; color: #666; border-top: 1px solid #ddd;">
+        <p>&copy; 2025 Sebastian-Ion Nae and Marius Leordeanu</p>
+        <p style="font-size: 0.9em; margin-top: 10px;">
+            <a href="https://github.com/SheepSeb/Vision-Language-UAV-Following-Control">View source on Github</a>
+        </p>
+    </footer>
+</body>
+</html>

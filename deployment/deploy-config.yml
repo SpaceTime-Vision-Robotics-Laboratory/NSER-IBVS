@@ -1,0 +1,78 @@
+# Deployment Configuration for GitHub Pages
+
+# Site Configuration
+site:
+  name: "Learning Object Following for Small UAVs using Vision-Language and Efficient Visual Flight Control"
+  description: "A research project on UAV object following using vision-language models and efficient flight control"
+  url: "https://sheepseb.github.io"
+  baseurl: "/Vision-Language-UAV-Following-Control"
+
+# Build Settings
+build:
+  source: "."
+  destination: "./_site"
+  plugins_dir: "_plugins"
+  layouts_dir: "_layouts"
+  data_dir: "_data"
+  includes_dir: "_includes"
+  collections_dir: ""
+  
+# Jekyll Build Configuration
+jekyll:
+  markdown: "kramdown"
+  highlighter: "rouge"
+  theme: "minima"
+  plugins:
+    - "jekyll-feed"
+    - "jekyll-sitemap"
+  
+# GitHub Pages Specific Settings
+github_pages:
+  source_branch: "main"
+  build_tool: "jekyll"
+  deployment_method: "github_actions"
+  
+# Asset Management
+assets:
+  images_dir: "assets/images"
+  videos_dir: "assets/videos"
+  demos_dir: "assets/demos"
+  docs_dir: "docs"
+
+# Content Organization
+content:
+  main_page: "index.html"
+  readme_as_home: true
+  demo_collection: "_demos"
+  
+# SEO and Meta
+seo:
+  title_separator: "|"
+  author:
+    - name: "Sebastian-Ion Nae"
+      github: "SheepSeb"
+    - name: "Marius Leordeanu"
+
+# Navigation
+navigation:
+  - title: "Home"
+    url: "/"
+  - title: "Documentation"
+    url: "/docs/"
+  - title: "Demos"
+    url: "/assets/demos/"
+  - title: "Repository"
+    url: "https://github.com/SheepSeb/Vision-Language-UAV-Following-Control"
+
+# Performance Settings
+performance:
+  compress_html: true
+  lazy_load_images: true
+  minify_css: true
+  minify_js: true
+
+# Development Settings
+development:
+  show_drafts: false
+  future: false
+  unpublished: false

@@ -1,0 +1,46 @@
+# GitHub Pages Configuration
+title: "Efficient Self-Supervised Neuro-Analytic Visual Servoing for Real-time Quadrotor Control"
+description: "A research project on self-supervised neuro-analytic visual servoing for real-time quadrotor control"
+url: "https://space-time-vision-robotics-laboratory.github.io"
+baseurl: "/NSER-IBVS"
+
+# Theme
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Authors
+authors:
+  - name: "Sebastian Mocanu"
+  - name: "Sebastian-Ion Nae"
+  - name: "Mihai Eugen Barbu"
+  - name: "Marius Leordeanu"
+
+# GitHub repository
+repository: "SpaceTime-Vision-Robotics-Laboratory/NSER-IBVS"
+
+# Exclude files from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - ".gitignore"
+  - ".git/"
+
+# Markdown settings
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Collections
+collections:
+  demos:
+    output: true
+    permalink: /:collection/:name/
