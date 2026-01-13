@@ -28,12 +28,18 @@ jobs:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           compressOnly: true 
 
-      # 2. Minify HTML, CSS, and JS to make the site load faster
-      - name: Minify Source Code
-        uses: docker://devatherock/minify-js:3.1.0
-        with:
-          directory: '.'
-          add_suffix: false
+      # 2. Minify CSS and JS (skip HTML to preserve layout)r
+      - name: Minify CSS and JS
+        run: |
+          npm install -g cssnano-cli terser
+          # Minify CSS
+          for file in $(find . -name "*.css" -type f); do
+            npx cssnano "$file" "$file" --no-map
+          done
+          # Minify JS
+          for file in $(find . -name "*.js" -type f ! -name "*.min.js"); do
+            npx terser "$file" -o "$file" --compress --mangle
+          done
 
       # 3. Setup Pages metadata
       - name: Setup Pages
