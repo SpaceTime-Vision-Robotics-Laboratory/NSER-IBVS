@@ -1,411 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta name="language" content="en"/>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="language" content="en">
+    <title>Efficient Self-Supervised Neuro-Analytic Visual Servoing for Real-timeQuadrotor Control</title>
 
-    <title>Efficient Self-Supervised Neuro-Analytic Visual Servoing for Real-time Quadrotor Control</title>
+    <meta name="description" content="Numerically Stable Efficient Reduced Image-Based Visual Servoing with knowledge distillation for autonomous drone navigation in GPS-denied environments. ICCV 2025"/>
+    <meta name="keywords" content="Drone Control, Drone Simulation, Sim vs Real, Digital Twin, Robotics, UAV, Navigation, Detection, Knowledge Distillation, Visual Servoing, IBVS, Autonomous Systems, ICCV 2025"/>
 
-    <meta name="description" content="Numerically Stable Efficient Reduced Image-Based Visual Servoing with knowledge distillation for autonomous drone navigation in GPS-denied environments. ICCV 2025">
-    <meta name="keywords" content="Drone Control, Drone Simulation, Sim vs Real, Digital Twin, Robotics, UAV, Navigation, Detection, Knowledge Distillation, Visual Servoing, IBVS, Autonomous Systems, ICCV 2025">
-    
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Efficient Self-Supervised Neuro-Analytic Visual Servoing for Real-time Quadrotor Control">
-    <meta property="og:site_name" content="NSER-IBVS Drone">
-    <meta property="og:description" content="Numerically Stable Efficient Reduced Image-Based Visual Servoing with knowledge distillation for autonomous drone navigation in GPS-denied environments. ICCV 2025">
-    <meta property="og:url" content="https://spacetime-vision-robotics-laboratory.github.io/NSER-IBVS/">
-    <meta property="og:image" content="https://spacetime-vision-robotics-laboratory.github.io/NSER-IBVS/assets/nser-ibvs-drones-socials.png">
-    <meta property="og:image:secure_url" content="https://spacetime-vision-robotics-laboratory.github.io/NSER-IBVS/assets/nser-ibvs-drones-socials.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Presentation Website for Efficient Self-Supervised Neuro-Analytic Visual Servoing for Real-time Quadrotor Control">
-    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Efficient Self-Supervised Neuro-Analytic Visual Servoing for Real-time Quadrotor Control"/>
+    <meta property="og:site_name" content="NSER-IBVS Drone"/>
+    <meta property="og:description" content="Numerically Stable Efficient Reduced Image-Based Visual Servoing with knowledge distillation for autonomous drone navigation in GPS-denied environments. ICCV 2025"/>
+    <meta property="og:url" content="https://spacetime-vision-robotics-laboratory.github.io/NSER-IBVS/"/>
+    <meta property="og:image" content="https://spacetime-vision-robotics-laboratory.github.io/NSER-IBVS/assets/nser-ibvs-drones-socials.png"/>
+    <meta property="og:image:secure_url" content="https://spacetime-vision-robotics-laboratory.github.io/NSER-IBVS/assets/nser-ibvs-drones-socials.png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:image:alt" content="Presentation Website for Efficient Self-Supervised Neuro-Analytic Visual Servoing for Real-time Quadrotor Control"/>
+    <meta property="og:locale" content="en_US"/>
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Efficient Self-Supervised Neuro-Analytic Visual Servoing for Real-time Quadrotor Control">
-    <meta name="twitter:description" content="Numerically Stable Efficient Reduced Image-Based Visual Servoing with knowledge distillation for autonomous drone navigation in GPS-denied environments. ICCV 2025">
-    <meta name="twitter:image" content="https://spacetime-vision-robotics-laboratory.github.io/NSER-IBVS/assets/nser-ibvs-drones-socials.png">
-    <meta name="twitter:image:alt" content="Presentation Website for Efficient Self-Supervised Neuro-Analytic Visual Servoing for Real-time Quadrotor Control">
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Efficient Self-Supervised Neuro-Analytic Visual Servoing for Real-time Quadrotor Control" />
+    <meta name="twitter:description" content="Numerically Stable Efficient Reduced Image-Based Visual Servoing with knowledge distillation for autonomous drone navigation in GPS-denied environments. ICCV 2025"/>
+    <meta name="twitter:image" content="https://spacetime-vision-robotics-laboratory.github.io/NSER-IBVS/assets/nser-ibvs-drones-socials.png"/>
+    <meta name="twitter:image:alt" content="Presentation Website for Efficient Self-Supervised Neuro-Analytic Visual Servoing for Real-time Quadrotor Control"/>
 
-    <meta name="citation_title" content="Efficient Self-Supervised Neuro-Analytic Visual Servoing for Real-time Quadrotor Control">
-    <meta name="citation_author" content="Sebastian Mocanu">
-    <meta name="citation_author" content="Sebastian-Ion Nae">
-    <meta name="citation_author" content="Mihai-Eugen Barbu">
-    <meta name="citation_author" content="Marius Leordeanu">
-    <meta name="citation_publication_date" content="2025">
-    <meta name="citation_conference_title" content="Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops">
-    <meta name="citation_firstpage" content="1744">
-    <meta name="citation_lastpage" content="1753">
-    <meta name="citation_pdf_url" content="https://openaccess.thecvf.com/content/ICCV2025W/EVW/papers/Mocanu_Efficient_Self-Supervised_Neuro-Analytic_Visual_Servoing_for_Real-time_Quadrotor_Control_ICCVW_2025_paper.pdf">
+    <meta name="citation_title" content="Efficient Self-Supervised Neuro-Analytic Visual Servoing for Real-time Quadrotor Control"/>
+    <meta name="citation_author" content="Sebastian Mocanu"/>
+    <meta name="citation_author" content="Sebastian-Ion Nae"/>
+    <meta name="citation_author" content="Mihai-Eugen Barbu"/>
+    <meta name="citation_author" content="Marius Leordeanu"/>
+    <meta name="citation_publication_date" content="2025"/>
+    <meta name="citation_conference_title" content="Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops"/>
+    <meta name="citation_firstpage" content="1744"/>
+    <meta name="citation_lastpage" content="1753"/>
+    <meta name="citation_pdf_url" content="https://openaccess.thecvf.com/content/ICCV2025W/EVW/papers/Mocanu_Efficient_Self-Supervised_Neuro-Analytic_Visual_Servoing_for_Real-time_Quadrotor_Control_ICCVW_2025_paper.pdf" />
 
-    <meta name="DC.creator" content="Sebastian Mocanu">
-    <meta name="DC.subject" content="Drone Control, Drone Simulation, Sim vs Real, Digital Twin, Robotics, UAV, Navigation, Detection, Knowledge Distillation, Visual Servoing, IBVS, Autonomous Systems">
-    <meta name="DC.description" content="Presentation Website for Efficient Self-Supervised Neuro-Analytic Visual Servoing for Real-time Quadrotor Control">
-    <meta name="DC.type" content="Text">
-    <meta name="DC.format" content="text/html">
-    <meta name="DC.language" content="en">
+    <meta name="DC.creator" content="Sebastian Mocanu"/>
+    <meta name="DC.subject" content="Drone Control, Drone Simulation, Sim vs Real, Digital Twin, Robotics, UAV, Navigation, Detection, Knowledge Distillation, Visual Servoing, IBVS, Autonomous Systems"/>
+    <meta name="DC.description" content="Presentation Website for Efficient Self-Supervised Neuro-Analytic Visual Servoing for Real-time Quadrotor Control" />
+    <meta name="DC.type" content="Text"/>
+    <meta name="DC.format" content="text/html"/>
+    <meta name="DC.language" content="en"/>
 
-    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com"/>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"/>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-90M4DDNEBC"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-90M4DDNEBC');
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-90M4DDNEBC");
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <header class="title">
-        <h1>Efficient Self-Supervised Neuro-Analytic Visual Servoing for Real-time Quadrotor Control</h1>
-        <div class="conference">ICCV 2025 - The 21st Embedded Vision Workshop (Oral)</div>
+      <h1>Efficient Self-Supervised Neuro-Analytic Visual Servoing for Real-time Quadrotor Control</h1>
+      <div class="conference">ICCV 2025 - The 21st Embedded Vision Workshop (Oral)</div>
     </header>
 
     <nav class="authors" aria-label="Author links">
-        <a href="https://scholar.google.com/citations?user=osyBED4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="author">Sebastian Mocanu<sup>1</sup></a>
-        <a href="https://scholar.google.com/citations?user=VBogtPAAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="author">Sebastian-Ion Nae<sup>1</sup></a>
-        <a href="https://scholar.google.com/citations?user=9GlsUHAAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer" class="author">Mihai Eugen Barbu<sup>1</sup></a>
-        <a href="https://scholar.google.com/citations?user=se9kni0AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="author">Marius Leordeanu<sup>1,2,3</sup></a>
+      <a href="https://scholar.google.com/citations?user=osyBED4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="author">Sebastian Mocanu<sup>1</sup></a>
+      <a href="https://scholar.google.com/citations?user=VBogtPAAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="author">Sebastian-Ion Nae<sup>1</sup></a>
+      <a href="https://scholar.google.com/citations?user=9GlsUHAAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer" class="author">Mihai Eugen Barbu<sup>1</sup></a>
+      <a href="https://scholar.google.com/citations?user=se9kni0AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="author">Marius Leordeanu<sup>1,2,3</sup></a>
     </nav>
 
     <address class="affiliations">
-        <sup>1</sup>National University of Science and Technology POLITEHNICA Bucharest, Romania<br>
-        <sup>2</sup>Institute of Mathematics "Simion Stoilow" of the Romanian Academy, Romania<br>
-        <sup>3</sup>NORCE Norwegian Research Center, Norway
+      <sup>1</sup>National University of Science and Technology POLITEHNICA Bucharest, Romania<br/>
+      <sup>2</sup>Institute of Mathematics "Simion Stoilow" of the Romanian Academy, Romania<br/>
+      <sup>3</sup>NORCE Norwegian Research Center, Norway
     </address>
 
     <nav class="links" aria-label="Resource links">
-        <a href="assets/EVW-10_Efficient_Self_Supervised_Neuro_Analytic_Visual_Servoing_for_Real_time_Quadrotor_Control-10.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
-        <a href="assets/poster.pdf" target="_blank" rel="noopener noreferrer">Poster</a>
-        <a href="https://github.com/SpaceTime-Vision-Robotics-Laboratory/nser-ibvs-drone" target="_blank" rel="noreferrer">Code</a>
+      <a href="assets/EVW-10_Efficient_Self_Supervised_Neuro_Analytic_Visual_Servoing_for_Real_time_Quadrotor_Control-10.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
+      <a href="assets/poster.pdf" target="_blank" rel="noopener noreferrer">Poster</a>
+      <a href="https://github.com/SpaceTime-Vision-Robotics-Laboratory/nser-ibvs-drone" target="_blank" rel="noreferrer">Code</a>
     </nav>
 
-<main id="main-content">
-
-    <section class="section" aria-labelledby="overview-heading">
+    <main id="main-content">
+      <section class="section" aria-labelledby="overview-heading">
         <h2 id="overview-heading">Overview Video</h2>
         <div class="video-container">
-            <div class="video-wrapper">
-                <video 
-                    src="assets/Drone-Car-ICCV-EVW-x3-Speed.mp4" 
-                    autoplay loop muted playsinline controls
-                    aria-label="Demo video comparing teacher and student methods">
-                </video>
-            </div>
-            <p>Demo comparing the teacher and the student methods showcasing examples where the teacher is faster, where the student is faster and when the teacher fails to do the task.</p>
+          <div class="video-wrapper">
+            <video
+              src="assets/Drone-Car-ICCV-EVW-x3-Speed.mp4"
+              autoplay loop muted playsinline controls
+              aria-label="Demo video comparing teacher and student methods">
+            </video>
+          </div>
+          <p>Demo comparing the teacher and the student methods showcasing examples where the teacher is faster, where the student is faster and when the teacher fails to do the task.</p>
         </div>
-    </section>
+      </section>
 
-    <section class="section" aria-labelledby="motivation-heading">
+      <section class="section" aria-labelledby="motivation-heading">
         <h2 id="motivation-heading">Motivation and Contribution</h2>
         <div class="abstract">
-            <p><strong>Challenge: </strong>Classical IBVS methods suffer from numerical instabilities and singularities, while marker-based approaches (ArUco, AprilTags) limit deployment in dynamic indoor environments. GPS-denied scenarios demand efficient, marker-free visual servoing for quadrotor control.</p>
-            <p><strong>Our Solution: </strong>We present a self-supervised neuro-analytical framework featuring a <strong><u>N</u></strong>umerically <strong><u>S</u></strong>table <strong><u>E</u></strong>fficient and <strong><u>R</u></strong>educed (NSER) Image-Based Visual Servoing (IBVS)  teacher model, distilled into a lightweight 1.7M parameter student network achieving <strong>11x</strong> real-time performance with <strong>improved control accuracy</strong>.</p>
+          <p><strong>Challenge: </strong>Classical IBVS methods suffer from numerical instabilities and singularities, while marker-based approaches (ArUco, AprilTags) limit deployment in dynamic indoor environments. GPS-denied scenarios demand efficient, marker-free visual servoing for quadrotor control.</p>
+          <p><strong>Our Solution: </strong>We present a self-supervised neuro-analytical framework featuring a <strong><u>N</u></strong>umerically <strong><u>S</u></strong>table <strong><u>E</u></strong>fficient and <strong><u>R</u></strong>educed (NSER) Image-Based Visual Servoing (IBVS)  teacher model, distilled into a lightweight 1.7M parameter student network achieving <strong>11x</strong> real-time performance with <strong>improved control accuracy</strong>.</p>
         </div>
-        
         <div class="key-contributions">
-            <h3>Key Contributions</h3>
-            <ul>
-                <li><strong>Stable analytical teacher: </strong>Improved IBVS controller solving numerical instabilities through reduced classical equations, enabling robust marker-free control.</li>
-                <li><strong>Two-stage segmentation: </strong>YOLOv11 + U-Net mask splitter for anterior-posterior vehicle segmentation, accurately estimating target orientation.</li>
-                <li><strong>Efficient knowledge distillation: </strong>Dual-path system transferring geometric visual servoing from teacher to compact student neural network that outperforms the teacher while suitable for onboard deployment.</li>
-                <li><strong>Practical sim-to-real transfer: </strong>Digital-twin training with real-world fine-tuning, validated in GPS-denied indoor environments with minimal hardware.</li>
-            </ul>
+          <h3>Key Contributions</h3>
+          <ul>
+            <li><strong>Stable analytical teacher: </strong>Improved IBVS controller solving numerical instabilities through reduced classical equations, enabling robust marker-free control.</li>
+            <li><strong>Two-stage segmentation: </strong>YOLOv11 + U-Net mask splitter for anterior-posterior vehicle segmentation, accurately estimating target orientation.</li>
+            <li><strong>Efficient knowledge distillation: </strong>Dual-path system transferring geometric visual servoing from teacher to compact student neural network that outperforms the teacher while suitable for onboard deployment.</li>
+            <li><strong>Practical sim-to-real transfer: </strong>Digital-twin training with real-world fine-tuning, validated in GPS-denied indoor environments with minimal hardware.</li>
+          </ul>
         </div>
-    </section>
+      </section>
 
-    
-    <section class="section" aria-labelledby="teacher-performance-heading">
+      <section class="section" aria-labelledby="teacher-performance-heading">
         <h3 id="teacher-performance-heading">Visual Performance for Teacher</h3>
         <div class="video-grid">
-            <figure class="video-item">
-                <video autoplay loop muted playsinline aria-label="Teacher front-left approach demo">
-                    <source src="assets/small_videos/compressed_output_commands-real-ibvs-teacher-front-left-2025-06-21_13-15-12.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <figcaption>Front-Left Approach</figcaption>
-            </figure>
-            <figure class="video-item">
-                <video autoplay loop muted playsinline aria-label="Teacher up-left approach demo">
-                    <source src="assets/small_videos/compressed_output_commands-real-ibvs-teacher-up-left-2025-06-15_18-53-53.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <figcaption>Up-Left Approach</figcaption>
-            </figure>
-            <figure class="video-item">
-                <video autoplay loop muted playsinline aria-label="Teacher up-right approach demo">
-                    <source src="assets/small_videos/compressed_output_commands-real-ibvs-teacher-up-right-2025-06-15_18-46-53.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <figcaption>Up-Right Approach</figcaption>
-            </figure>
-            <figure class="video-item">
-                <video autoplay loop muted playsinline aria-label="Teacher left approach demo">
-                    <source src="assets/small_videos/compressed_output_commands-real-ibvs-teacher-left-2025-06-15_19-07-23.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <figcaption>Left Approach</figcaption>
-            </figure>
-            <figure class="video-item">
-                <video autoplay loop muted playsinline aria-label="Teacher right approach demo">
-                    <source src="assets/small_videos/compressed_output_commands-real-ibvs-teacher-right-2025-06-21_13-19-39.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <figcaption>Right Approach</figcaption>
-            </figure>
-            <figure class="video-item">
-                <video autoplay loop muted playsinline aria-label="Teacher down-left approach demo">
-                    <source src="assets/small_videos/compressed_output_commands-real-ibvs-teacher-down-left-2025-06-15_19-21-06.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <figcaption>Down-Left Approach</figcaption>
-            </figure>
-            <figure class="video-item">
-                <video autoplay loop muted playsinline aria-label="Teacher down-right approach demo">
-                    <source src="assets/small_videos/compressed_output_commands-real-ibvs-teacher-down-right-21-06-2025-06-21_13-20-54.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <figcaption>Down-Right Approach</figcaption>
-            </figure>
-            <figure class="video-item">
-                <video autoplay loop muted playsinline aria-label="Teacher front-center approach failure demo">
-                    <source src="assets/small_videos/compressed_output_commands-real-ibvs-teacher-front-center-fail-2025-06-21_13-23-08.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <figcaption>Front-Center Approach (Teacher Fails)</figcaption>
-            </figure>
+          <figure class="video-item">
+            <video autoplay loop muted playsinline aria-label="Teacher front-left approach demo">
+              <source src="assets/small_videos/compressed_output_commands-real-ibvs-teacher-front-left-2025-06-21_13-15-12.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Front-Left Approach</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay loop muted playsinline aria-label="Teacher up-left approach demo">
+              <source src="assets/small_videos/compressed_output_commands-real-ibvs-teacher-up-left-2025-06-15_18-53-53.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Up-Left Approach</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay loop muted playsinline aria-label="Teacher up-right approach demo">
+              <source src="assets/small_videos/compressed_output_commands-real-ibvs-teacher-up-right-2025-06-15_18-46-53.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Up-Right Approach</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay loop muted playsinline aria-label="Teacher left approach demo">
+              <source src="assets/small_videos/compressed_output_commands-real-ibvs-teacher-left-2025-06-15_19-07-23.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Left Approach</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay loop muted playsinline aria-label="Teacher right approach demo">
+              <source src="assets/small_videos/compressed_output_commands-real-ibvs-teacher-right-2025-06-21_13-19-39.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Right Approach</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay loop muted playsinline aria-label="Teacher down-left approach demo">
+              <source src="assets/small_videos/compressed_output_commands-real-ibvs-teacher-down-left-2025-06-15_19-21-06.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Down-Left Approach</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay loop muted playsinline aria-label="Teacher down-right approach demo">
+              <source src="assets/small_videos/compressed_output_commands-real-ibvs-teacher-down-right-21-06-2025-06-21_13-20-54.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Down-Right Approach</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay loop muted playsinline aria-label="Teacher front-center approach failure demo">
+              <source src="assets/small_videos/compressed_output_commands-real-ibvs-teacher-front-center-fail-2025-06-21_13-23-08.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Front-Center Approach (Teacher Fails)</figcaption>
+          </figure>
         </div>
-    </section>
+      </section>
 
-    <section class="section" aria-labelledby="student-performance-heading">
+      <section class="section" aria-labelledby="student-performance-heading">
         <h3 id="student-performance-heading">Visual Performance for Student</h3>
         <div class="video-grid">
-            <figure class="video-item">
-                <video autoplay loop muted playsinline aria-label="Student front-left approach demo">
-                    <source src="assets/small_videos/student/compressed_output_commands-real-student-front-left-2025-06-21_11-40-23.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <figcaption>Front-Left Approach</figcaption>
-            </figure>
-            <figure class="video-item">
-                <video autoplay loop muted playsinline aria-label="Student up-left approach demo">
-                    <source src="assets/small_videos/student/compressed_output_commands-real-student-up-left-2025-06-21_12-31-46.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <figcaption>Up-Left Approach</figcaption>
-            </figure>
-            <figure class="video-item">
-                <video autoplay loop muted playsinline aria-label="Student up-right approach demo">
-                    <source src="assets/small_videos/student/compressed_output_commands-real-student-up-right-2025-06-21_11-57-07.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <figcaption>Up-Right Approach</figcaption>
-            </figure>
-            <figure class="video-item">
-                <video autoplay loop muted playsinline aria-label="Student left approach demo">
-                    <source src="assets/small_videos/student/compressed_output_commands-real-student-left-2025-06-21_12-40-09.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <figcaption>Left Approach</figcaption>
-            </figure>
-            <figure class="video-item">
-                <video autoplay loop muted playsinline aria-label="Student right approach demo">
-                    <source src="assets/small_videos/student/compressed_output_commands-real-student-right-2025-06-21_13-02-28.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <figcaption>Right Approach</figcaption>
-            </figure>
-            <figure class="video-item">
-                <video autoplay loop muted playsinline aria-label="Student down-left approach demo">
-                    <source src="assets/small_videos/student/compressed_output_commands-real-student-down-left-2025-06-21_12-45-56.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <figcaption>Down-Left Approach</figcaption>
-            </figure>
-            <figure class="video-item">
-                <video autoplay loop muted playsinline aria-label="Student down-right approach demo">
-                    <source src="assets/small_videos/student/compressed_output_commands-real-student-down-right-2025-06-21_12-55-11.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <figcaption>Down-Right Approach</figcaption>
-            </figure>
-            <figure class="video-item">
-                <video autoplay loop muted playsinline aria-label="Student front-center approach success demo">
-                    <source src="assets/small_videos/student/compressed_output_commands-real-student-front-center-2025-06-21_13-27-33.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <figcaption>Front-Center Approach (Student Succeeds)</figcaption>
-            </figure>
+          <figure class="video-item">
+            <video autoplay loop muted playsinline aria-label="Student front-left approach demo">
+              <source src="assets/small_videos/student/compressed_output_commands-real-student-front-left-2025-06-21_11-40-23.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Front-Left Approach</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay loop muted playsinline aria-label="Student up-left approach demo">
+              <source src="assets/small_videos/student/compressed_output_commands-real-student-up-left-2025-06-21_12-31-46.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Up-Left Approach</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay loop muted playsinline aria-label="Student up-right approach demo">
+              <source src="assets/small_videos/student/compressed_output_commands-real-student-up-right-2025-06-21_11-57-07.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Up-Right Approach</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay loop muted playsinline aria-label="Student left approach demo">
+              <source src="assets/small_videos/student/compressed_output_commands-real-student-left-2025-06-21_12-40-09.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Left Approach</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay loop muted playsinline aria-label="Student right approach demo">
+              <source src="assets/small_videos/student/compressed_output_commands-real-student-right-2025-06-21_13-02-28.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Right Approach</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay loop muted playsinline aria-label="Student down-left approach demo">
+              <source src="assets/small_videos/student/compressed_output_commands-real-student-down-left-2025-06-21_12-45-56.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Down-Left Approach</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay loop muted playsinline aria-label="Student down-right approach demo">
+              <source src="assets/small_videos/student/compressed_output_commands-real-student-down-right-2025-06-21_12-55-11.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Down-Right Approach</figcaption>
+          </figure>
+          <figure class="video-item">
+            <video autoplay loop muted playsinline aria-label="Student front-center approach success demo">
+              <source src="assets/small_videos/student/compressed_output_commands-real-student-front-center-2025-06-21_13-27-33.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Front-Center Approach (Student Succeeds)</figcaption>
+          </figure>
         </div>
-    </section>
+      </section>
 
-    <section class="section" aria-labelledby="approach-heading">
+      <section class="section" aria-labelledby="approach-heading">
         <h2 id="approach-heading">Our Approach</h2>
         
         <p>We propose a self-supervised neuro-analytical framework combining a numerically stable analytical visual servoing controller with efficient neural network distillation for real-time quadrotor control.</p>
         
         <h3>1. Knowledge Distillation &amp; Self-Supervised Learning Pipeline</h3>
         <figure class="figure-centered">
-            <img src="assets/paper-figuri/teacher-student-math.png" alt="Diagram showing teacher-student knowledge distillation pipeline with the teacher IBVS model transferring knowledge to a lightweight student neural network" loading="lazy">
-            <figcaption>Lightweight 1.7M parameter student network trained via knowledge distillation from teacher. Simulator-based data generation with sim-to-real transfer achieves 11x faster inference (1.85ms vs 20.69ms).</figcaption>
+          <img src="assets/paper-figuri/teacher-student-math.png" alt="Diagram showing teacher-student knowledge distillation pipeline with the teacher IBVS model transferring knowledge to a lightweight student neural network" loading="lazy">
+          <figcaption>Lightweight 1.7M parameter student network trained via knowledge distillation from teacher. Simulator-based data generation with sim-to-real transfer achieves 11x faster inference (1.85ms vs 20.69ms).</figcaption>
         </figure>
 
         <h3>2. Numerically Stable IBVS Teacher (NSER)</h3>
         <figure class="figure-centered figure-full-width">
-            <img src="assets/paper-figuri/NSER-IBVS.png" alt="Architecture diagram of the NSER IBVS teacher showing the reduced formulation for numerical stability" loading="lazy">
-            <figcaption>Analytically stable Image-Based Visual Servoing controller addressing classical IBVS numerical instabilities through reduced formulations and robust error computation from corner points.</figcaption>
+          <img src="assets/paper-figuri/NSER-IBVS.png" alt="Architecture diagram of the NSER IBVS teacher showing the reduced formulation for numerical stability" loading="lazy">
+          <figcaption>Analytically stable Image-Based Visual Servoing controller addressing classical IBVS numerical instabilities through reduced formulations and robust error computation from corner points.</figcaption>
         </figure> 
 
         <h3>3. Two-Stage Target Segmentation</h3>
         <figure class="figure-centered">
-            <img src="assets/paper-figuri/masked_splitter.png" alt="Diagram of the two-stage segmentation pipeline: YOLOv11 detection followed by U-Net mask splitter for anterior-posterior separation" loading="lazy">
-            <figcaption>YOLOv11 detection refined with U-Net segmentation splitter to distinguish anterior-posterior vehicle halves for precise orientation estimation.</figcaption>
+          <img src="assets/paper-figuri/masked_splitter.png" alt="Diagram of the two-stage segmentation pipeline: YOLOv11 detection followed by U-Net mask splitter for anterior-posterior separation" loading="lazy">
+          <figcaption>YOLOv11 detection refined with U-Net segmentation splitter to distinguish anterior-posterior vehicle halves for precise orientation estimation.</figcaption>
         </figure>
         
         <p class="italic">This integrated approach combines the robustness of analytical control theory with the efficiency and adaptability of neural networks, enabling practical deployment on resource-constrained aerial platforms.</p>
     </section>
 
 
-    <section class="section" aria-labelledby="setup-heading">
+      <section class="section" aria-labelledby="setup-heading">
         <h2 id="setup-heading">Experimental Setup</h2>
-        
-        <div class="two-column two-column-aligned">
-            <figure class="figure-centered">
-                <img src="assets/paper-figuri/dataset/Drone-Starting-Point.png" alt="Diagram showing 8 directional starting positions around the target vehicle: up-left, up-right, front-left, front-right, left, right, down-left, down-right" loading="lazy">
-                <figcaption>8 directional starting positions</figcaption>
-            </figure>
-            
-            <div>
-                <p><strong>Evaluation Framework:</strong> High-fidelity digital twin simulator + real-world indoor GPS-denied flights</p>
-                
-                <h4>Evaluation Metrics</h4>
-                <ul class="compact-list">
-                    <li><strong>Flight performance:</strong> Distance, time</li>
-                    <li><strong>Control accuracy:</strong> Final norm error (px)</li>
-                    <li><strong>Tracking quality:</strong> IoU (last 3s)</li>
-                    <li><strong>Efficiency:</strong> Inference time, FPS</li>
-                </ul>
-                
-                <p class="model-comparison">
-                    <strong>Teacher:</strong> Numerically stable IBVS<br>
-                    <strong>Student:</strong> 1.7M ConvNet (11x faster)
-                </p>
-            </div>
-        </div>
-    </section>
 
-    <section class="section" aria-labelledby="visual-results-heading">
+        <div class="two-column two-column-aligned">
+          <figure class="figure-centered">
+            <img src="assets/paper-figuri/dataset/Drone-Starting-Point.png" alt="Diagram showing 8 directional starting positions around the target vehicle: up-left, up-right, front-left, front-right, left, right, down-left, down-right" loading="lazy">
+            <figcaption>8 directional starting positions</figcaption>
+          </figure>
+          
+          <div>
+            <p><strong>Evaluation Framework:</strong> High-fidelity digital twin simulator + real-world indoor GPS-denied flights</p>
+            
+            <h4>Evaluation Metrics</h4>
+            <ul class="compact-list">
+              <li><strong>Flight performance:</strong> Distance, time</li>
+              <li><strong>Control accuracy:</strong> Final norm error (px)</li>
+              <li><strong>Tracking quality:</strong> IoU (last 3s)</li>
+              <li><strong>Efficiency:</strong> Inference time, FPS</li>
+            </ul>
+            
+            <p class="model-comparison">
+              <strong>Teacher:</strong> Numerically stable IBVS<br>
+              <strong>Student:</strong> 1.7M ConvNet (11x faster)
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="visual-results-heading">
         <h2 id="visual-results-heading">Visual Results</h2>
 
         <h3>Control command and error evolutions over time</h3>
-        
+
         <div class="results-two-column">
-            <figure class="figure-centered">
-                <img src="assets/cmds/real_ibvs_evolution_over_time_commands_errors_rl_style_combined.png" alt="Graph showing control command and error evolution over time for the teacher IBVS in real flight conditions" loading="lazy">
-                <figcaption>Real flight - Teacher (IBVS)</figcaption>
-            </figure>
-            <figure class="figure-centered">
-                <img src="assets/cmds/real_student_evolution_over_time_commands_errors_rl_style_combined.png" alt="Graph showing control command and error evolution over time for the student network in real flight conditions" loading="lazy">
-                <figcaption>Real flight - Student</figcaption>
-            </figure>
-            <figure class="figure-centered">
-                <img src="assets/cmds/sim_ibvs_evolution_over_time_commands_errors_rl_style_combined.png" alt="Graph showing control command and error evolution over time for the teacher IBVS in simulation" loading="lazy">
-                <figcaption>Simulation - Teacher (IBVS)</figcaption>
-            </figure>
-            <figure class="figure-centered">
-                <img src="assets/cmds/sim_student_evolution_over_time_commands_errors_rl_style_combined.png" alt="Graph showing control command and error evolution over time for the student network in simulation" loading="lazy">
-                <figcaption>Simulation - Student</figcaption>
-            </figure>
+          <figure class="figure-centered">
+            <img src="assets/cmds/real_ibvs_evolution_over_time_commands_errors_rl_style_combined.png" alt="Graph showing control command and error evolution over time for the teacher IBVS in real flight conditions" loading="lazy">
+            <figcaption>Real flight - Teacher (IBVS)</figcaption>
+          </figure>
+          <figure class="figure-centered">
+            <img src="assets/cmds/real_student_evolution_over_time_commands_errors_rl_style_combined.png" alt="Graph showing control command and error evolution over time for the student network in real flight conditions" loading="lazy">
+            <figcaption>Real flight - Student</figcaption>
+          </figure>
+          <figure class="figure-centered">
+            <img src="assets/cmds/sim_ibvs_evolution_over_time_commands_errors_rl_style_combined.png" alt="Graph showing control command and error evolution over time for the teacher IBVS in simulation" loading="lazy">
+            <figcaption>Simulation - Teacher (IBVS)</figcaption>
+          </figure>
+          <figure class="figure-centered">
+            <img src="assets/cmds/sim_student_evolution_over_time_commands_errors_rl_style_combined.png" alt="Graph showing control command and error evolution over time for the student network in simulation" loading="lazy">
+            <figcaption>Simulation - Student</figcaption>
+          </figure>
         </div>
-
-
 
         <h3>Trajectory Analysis</h3>
         <div class="results-two-column">
-            <figure class="figure-centered">
-                <img src="assets/trajectories/Trajectory-Front.png" alt="3D visualization of drone flight trajectories from front starting positions" loading="lazy">
-                <figcaption>Front trajectories</figcaption>
-            </figure>
-            <figure class="figure-centered">
-                <img src="assets/trajectories/Trajectory-Up.png" alt="3D visualization of drone flight trajectories from elevated starting positions" loading="lazy">
-                <figcaption>Up trajectories</figcaption>
-            </figure>
+          <figure class="figure-centered">
+            <img src="assets/trajectories/Trajectory-Front.png" alt="3D visualization of drone flight trajectories from front starting positions" loading="lazy">
+            <figcaption>Front trajectories</figcaption>
+          </figure>
+          <figure class="figure-centered">
+            <img src="assets/trajectories/Trajectory-Up.png" alt="3D visualization of drone flight trajectories from elevated starting positions" loading="lazy">
+            <figcaption>Up trajectories</figcaption>
+          </figure>
         </div>
-    </section>
+      </section>
 
-    <section class="section" aria-labelledby="numeric-results-heading">
+      <section class="section" aria-labelledby="numeric-results-heading">
         <h2 id="numeric-results-heading">Numeric Results</h2>
-        
+
         <div class="table-responsive">
-        <table class="results-table">
+          <table class="results-table">
             <caption class="sr-only">Teacher-student comparison across different starting positions</caption>
             <thead>
-                <tr>
-                    <th rowspan="2" scope="col">Direction</th>
-                    <th colspan="3" scope="col">Flight SIM</th>
-                    <th colspan="3" scope="col">Flight</th>
-                </tr>
-                <tr>
-                    <th scope="col">Distance (m) / Time (s) ↓</th>
-                    <th scope="col">Norm Error SIM (px) ↓</th>
-                    <th scope="col">IoU SIM ↑</th>
-                    <th scope="col">Distance (m) / Time (s) ↓</th>
-                    <th scope="col">Norm Error (px) ↓</th>
-                    <th scope="col">IoU ↑</th>
-                </tr>
+              <tr>
+                <th rowspan="2" scope="col">Direction</th>
+                <th colspan="3" scope="col">Flight SIM</th>
+                <th colspan="3" scope="col">Flight</th>
+              </tr>
+              <tr>
+                <th scope="col">Distance (m) / Time (s) ↓</th>
+                <th scope="col">Norm Error SIM (px) ↓</th>
+                <th scope="col">IoU SIM ↑</th>
+                <th scope="col">Distance (m) / Time (s) ↓</th>
+                <th scope="col">Norm Error (px) ↓</th>
+                <th scope="col">IoU ↑</th>
+              </tr>
             </thead>
             <tbody>
-                <tr><td rowspan="2">Up-Left</td><td>5.312 / <strong>23.466</strong></td><td>29.256</td><td>0.530</td><td>5.798 / <strong>36.721</strong></td><td>30.134</td><td>0.620</td></tr>
-                <tr><td><strong>5.193</strong> / 24.164</td><td><strong>13.319</strong></td><td><strong>0.759</strong></td><td><strong>5.735</strong> / 43.334</td><td><strong>28.600</strong></td><td><strong>0.6263</strong></td></tr>
+              <tr><td rowspan="2">Up-Left</td><td>5.312 / <strong>23.466</strong></td><td>29.256</td><td>0.530</td><td>5.798 / <strong>36.721</strong></td><td>30.134</td><td>0.620</td></tr>
+              <tr><td><strong>5.193</strong> / 24.164</td><td><strong>13.319</strong></td><td><strong>0.759</strong></td><td><strong>5.735</strong> / 43.334</td><td><strong>28.600</strong></td><td><strong>0.6263</strong></td></tr>
 
-                <tr><td rowspan="2">Up-Right</td><td><strong>5.675 / 24.226</strong></td><td>31.800</td><td><strong>0.503</strong></td><td><strong>5.622 / 41.581</strong></td><td>31.499</td><td>0.621</td></tr>
-                <tr><td>6.064 / 28.298</td><td><strong>13.172</strong></td><td>0.766</td><td>5.716 / 45.885</td><td><strong>22.802</strong></td><td><strong>0.6919</strong></td></tr>
+              <tr><td rowspan="2">Up-Right</td><td><strong>5.675 / 24.226</strong></td><td>31.800</td><td><strong>0.503</strong></td><td><strong>5.622 / 41.581</strong></td><td>31.499</td><td>0.621</td></tr>
+              <tr><td>6.064 / 28.298</td><td><strong>13.172</strong></td><td>0.766</td><td>5.716 / 45.885</td><td><strong>22.802</strong></td><td><strong>0.6919</strong></td></tr>
 
-                <tr><td rowspan="2">Front-Left</td><td>6.196 / <strong>27.315</strong></td><td>30.706</td><td>0.517</td><td>6.493 / <strong>37.535</strong></td><td><strong>28.540</strong></td><td>0.611</td></tr>
-                <tr><td><strong>6.041</strong> / 27.917</td><td><strong>13.430</strong></td><td><strong>0.758</strong></td><td><strong>6.490</strong> / 47.238</td><td>33.981</td><td><strong>0.560</strong></td></tr>
+              <tr><td rowspan="2">Front-Left</td><td>6.196 / <strong>27.315</strong></td><td>30.706</td><td>0.517</td><td>6.493 / <strong>37.535</strong></td><td><strong>28.540</strong></td><td>0.611</td></tr>
+              <tr><td><strong>6.041</strong> / 27.917</td><td><strong>13.430</strong></td><td><strong>0.758</strong></td><td><strong>6.490</strong> / 47.238</td><td>33.981</td><td><strong>0.560</strong></td></tr>
 
-                <tr><td rowspan="2">Front-Right</td><td><strong>6.846 / 32.358</strong></td><td>32.608</td><td>0.488</td><td><strong>6.197 / 37.166</strong></td><td>33.150</td><td><strong>0.658</strong></td></tr>
-                <tr><td>7.043 / 35.535</td><td><strong>18.028</strong></td><td><strong>0.718</strong></td><td>6.316 / 46.363</td><td><strong>31.035</strong></td><td>0.627</td></tr>
+              <tr><td rowspan="2">Front-Right</td><td><strong>6.846 / 32.358</strong></td><td>32.608</td><td>0.488</td><td><strong>6.197 / 37.166</strong></td><td>33.150</td><td><strong>0.658</strong></td></tr>
+              <tr><td>7.043 / 35.535</td><td><strong>18.028</strong></td><td><strong>0.718</strong></td><td>6.316 / 46.363</td><td><strong>31.035</strong></td><td>0.627</td></tr>
 
-                <tr><td rowspan="2">Left</td><td>4.177 / <strong>20.228</strong></td><td>31.453</td><td>0.519</td><td><strong>4.559 / 29.921</strong></td><td><strong>28.015</strong></td><td>0.629</td></tr>
-                <tr><td><strong>4.089</strong> / 20.481</td><td><strong>13.243</strong></td><td><strong>0.762</strong></td><td>5.065 / 43.841</td><td>30.853</td><td><strong>0.6482</strong></td></tr>
+              <tr><td rowspan="2">Left</td><td>4.177 / <strong>20.228</strong></td><td>31.453</td><td>0.519</td><td><strong>4.559 / 29.921</strong></td><td><strong>28.015</strong></td><td>0.629</td></tr>
+              <tr><td><strong>4.089</strong> / 20.481</td><td><strong>13.243</strong></td><td><strong>0.762</strong></td><td>5.065 / 43.841</td><td>30.853</td><td><strong>0.6482</strong></td></tr>
 
-                <tr><td rowspan="2">Right</td><td><strong>4.317 / 19.637</strong></td><td>31.137</td><td>0.494</td><td>4.831 / <strong>41.409</strong></td><td><strong>32.423</strong></td><td><strong>0.612</strong></td></tr>
-                <tr><td>4.518 / 21.987</td><td><strong>13.798</strong></td><td><strong>0.759</strong></td><td><strong>4.811</strong> / 57.245</td><td>43.672</td><td>0.500</td></tr>
+              <tr><td rowspan="2">Right</td><td><strong>4.317 / 19.637</strong></td><td>31.137</td><td>0.494</td><td>4.831 / <strong>41.409</strong></td><td><strong>32.423</strong></td><td><strong>0.612</strong></td></tr>
+              <tr><td>4.518 / 21.987</td><td><strong>13.798</strong></td><td><strong>0.759</strong></td><td><strong>4.811</strong> / 57.245</td><td>43.672</td><td>0.500</td></tr>
 
-                <tr><td rowspan="2">Down-Left</td><td>2.779 / 15.988</td><td>28.473</td><td>0.518</td><td>4.384 / <strong>31.622</strong></td><td><strong>28.000</strong></td><td><strong>0.611</strong></td></tr>
-                <tr><td><strong>2.777 / 14.900</strong></td><td><strong>13.257</strong></td><td><strong>0.763</strong></td><td><strong>4.326</strong> / 41.044</td><td>39.531</td><td>0.5253</td></tr>
+              <tr><td rowspan="2">Down-Left</td><td>2.779 / 15.988</td><td>28.473</td><td>0.518</td><td>4.384 / <strong>31.622</strong></td><td><strong>28.000</strong></td><td><strong>0.611</strong></td></tr>
+              <tr><td><strong>2.777 / 14.900</strong></td><td><strong>13.257</strong></td><td><strong>0.763</strong></td><td><strong>4.326</strong> / 41.044</td><td>39.531</td><td>0.5253</td></tr>
 
-                <tr><td rowspan="2">Down-Right</td><td><strong>2.893 / 13.667</strong></td><td>22.618</td><td>0.606</td><td>4.137 / <strong>33.523</strong></td><td><strong>27.890</strong></td><td><strong>0.654</strong></td></tr>
-                <tr><td>3.145 / 17.035</td><td><strong>15.839</strong></td><td><strong>0.728</strong></td><td><strong>3.938</strong> / 38.001</td><td>36.195</td><td>0.5478</td></tr>
+              <tr><td rowspan="2">Down-Right</td><td><strong>2.893 / 13.667</strong></td><td>22.618</td><td>0.606</td><td>4.137 / <strong>33.523</strong></td><td><strong>27.890</strong></td><td><strong>0.654</strong></td></tr>
+              <tr><td>3.145 / 17.035</td><td><strong>15.839</strong></td><td><strong>0.728</strong></td><td><strong>3.938</strong> / 38.001</td><td>36.195</td><td>0.5478</td></tr>
 
-                <tr class="mean-row"><td rowspan="2">Mean</td><td><strong>4.774 / 22.111</strong></td><td>29.756</td><td>0.522</td><td><strong>5.253 / 36.185</strong></td><td><strong>29.956</strong></td><td><strong>0.627</strong></td></tr>
-                <tr class="mean-row"><td>4.859 / 23.790</td><td><strong>14.261</strong></td><td>0.752</td><td>5.300 / 45.369</td><td>33.334</td><td>0.591</td></tr>
+              <tr class="mean-row"><td rowspan="2">Mean</td><td><strong>4.774 / 22.111</strong></td><td>29.756</td><td>0.522</td><td><strong>5.253 / 36.185</strong></td><td><strong>29.956</strong></td><td><strong>0.627</strong></td></tr>
+              <tr class="mean-row"><td>4.859 / 23.790</td><td><strong>14.261</strong></td><td>0.752</td><td>5.300 / 45.369</td><td>33.334</td><td>0.591</td></tr>
             </tbody>
-            </table>
+          </table>
         </div>
         <p class="table-caption">Table 2. Teacher-student comparison across different starting positions. The left side shows results in the simulator; the right side shows results on flights in the real world. Metrics include total flight distance/time, final norm error in pixels (L2 norm of the error vector for all 4 corner points combined), and final IoU (L2 norm and IOU are computed in the last 3 secs of the flight). The teacher is slightly faster in flight time. Student is 11 faster in computation time (see Tab. 3). The student is slightly more accurate (lower errors at destination than the teacher) in simulation, where it was trained more, but it is slightly less accurate in real-world, where it was trained on far fewer flights.</p>
         
         <h3>Inference Time Analysis</h3>
 
         <div class="table-responsive">
-        <table class="inference-table">
+          <table class="inference-table">
             <caption class="sr-only">Computation times comparison between NSER IBVS and Student model</caption>
             <thead>
-                <tr>
-                    <th scope="col">Evaluator</th>
-                    <th scope="col">Avg</th>
-                    <th scope="col">Std</th>
-                    <th scope="col">Med</th>
-                    <th scope="col">Min</th>
-                    <th scope="col">Max</th>
-                    <th scope="col">FPS</th>
-                </tr>
+              <tr>
+                <th scope="col">Evaluator</th>
+                <th scope="col">Avg</th>
+                <th scope="col">Std</th>
+                <th scope="col">Med</th>
+                <th scope="col">Min</th>
+                <th scope="col">Max</th>
+                <th scope="col">FPS</th>
+              </tr>
             </thead>
             <tbody>
                 <tr>
@@ -427,19 +423,19 @@
                     <td><b>540.8</b></td>
                 </tr>
             </tbody>
-        </table>
+          </table>
         </div>
         <p class="table-caption-center">Table 3. Computation times (in milliseconds) over 30 trials. The small 1.7M params student ConvNet is 11x faster than the teacher.</p>
-    </section>
+      </section>
 
-    <section class="section" aria-labelledby="contact-heading">
+      <section class="section" aria-labelledby="contact-heading">
         <h3 id="contact-heading">Contact</h3>
         <div id="contact">
             <p>For questions and collaboration inquiries, please contact the authors through the GitHub repository or academic channels.</p>
         </div>
-    </section>
+      </section>
 
-    <section class="section" aria-labelledby="citation-heading">
+      <section class="section" aria-labelledby="citation-heading">
         <h2 id="citation-heading">Citation</h2>
         <pre class="citation" aria-label="BibTeX citation">@InProceedings{Mocanu_2025_ICCV,
     author    = {Mocanu, Sebastian and Nae, Sebastian-Ion and Barbu, Mihai-Eugen and Leordeanu, Marius},
