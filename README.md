@@ -3,6 +3,7 @@
 [![Conference](https://img.shields.io/badge/Paper-ICCV%202025-blue)](https://openaccess.thecvf.com/content/ICCV2025W/EVW/papers/Mocanu_Efficient_Self-Supervised_Neuro-Analytic_Visual_Servoing_for_Real-time_Quadrotor_Control_ICCVW_2025_paper.pdf)
 [![Code Implementation](https://img.shields.io/badge/Code-Implementation-green)](https://github.com/SpaceTime-Vision-Robotics-Laboratory/nser-ibvs-drone)
 [![arXiv](https://img.shields.io/badge/arXiv-2507.19878-b31b1b.svg)](https://arxiv.org/abs/2507.19878)
+[![Hugging Face Collection](https://img.shields.io/badge/🤗-Collection-yellow)](https://huggingface.co/collections/brittleru/nser-ibvs-suite)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 This repository contains the source code and assets for the official project website of the paper
@@ -27,6 +28,7 @@ presented at the **ICCV 2025 Embedded Vision Workshop (Oral)**.
 - [Paper (PDF)](assets/EVW-10-Efficient_Self_Supervised_Neuro_Analytic_Visual_Servoing_for_Real_time_Quadrotor_Control-10.pdf)
 - [arXiv](https://arxiv.org/abs/2507.19878)
 - [Code](https://github.com/SpaceTime-Vision-Robotics-Laboratory/nser-ibvs-drone)
+- [Hugging Face Collection](https://huggingface.co/collections/brittleru/nser-ibvs-suite) - Models, Demos, Dataset
 - [Poster](assets/NSER-IBVS-Poster-ICCV-2025.pdf)
 - [Dataset](https://drive.google.com/drive/folders/1T2Uq8nPQoy_QNiI87xBUoXlPAk7k-9Cq?usp=sharing)
 
